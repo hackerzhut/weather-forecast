@@ -19,7 +19,8 @@
     "moment-timezone": "^0.2.2",
     "morgan": "~1.0.0",
     "ng-grid": "^2.0.1",
-    "serve-favicon": "~2.0.1"
+    "serve-favicon": "~2.0.1",
+    "request": "^2.36.0"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
