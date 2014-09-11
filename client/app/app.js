@@ -12,7 +12,7 @@ var app = angular.module('weatherForecastApp', ['ngRoute','ngGrid']);
 		$locationProvider.html5Mode(true).hashPrefix('!');
 		$routeProvider
 	      .when('/', {
-	        templateUrl: '/main/main.html',
+	        templateUrl: 'app/main/main.html',
 	        controller: 'WeatherCtrl'
 	      });
 	}]);
