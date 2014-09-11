@@ -7,6 +7,7 @@
   "dependencies": {
     "body-parser": "~1.5.0",
     "composable-middleware": "^0.3.0",
+    "compression": "~1.0.1",
     "cookie-parser": "~1.0.1",
     "ejs": "~0.8.4",
     "errorhandler": "~1.0.0",
@@ -18,8 +19,7 @@
     "moment-timezone": "^0.2.2",
     "morgan": "~1.0.0",
     "ng-grid": "^2.0.1",
-    "serve-favicon": "~2.0.1",
-    "zlib": "^1.0.5"
+    "serve-favicon": "~2.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
