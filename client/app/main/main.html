@@ -1,0 +1,36 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container" ng-controller="WeatherCtrl">
+  <div class="weather-search">
+        <div class="row">
+            <div class="col-xs-12">
+                <div>
+                    <span class="btn-group" >
+                            <button ng-repeat="location in testLocations" ng-click="setLocation(location)" type="submit" class="btn btn-default">{{location}}</button>
+                    </span>
+                    <span ng-show="message" class="alert"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>{{message}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h3 class="page-header" ng-if="location">Weather Report ( {{location}} ) :</h3>
+        <div>
+             <div ng-if="contentAvailable">
+                <div class="gridStyle" ng-grid="gridOptions"></div>
+             </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<footer class="footer">
+  <div class="container">
+      <p>Weather Forecast v0.0.1 | <a href="https://github.com/hackerzhut/weather-forecast/issues?state=open">Issues</a></p>
+  </div>
+</footer>
