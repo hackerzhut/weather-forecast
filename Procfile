@@ -1,1 +1,1 @@
-web: node server/weatherApp.js
+web: NODE_ENV=production node server/weatherApp.js
