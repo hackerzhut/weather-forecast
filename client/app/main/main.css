@@ -34,3 +34,6 @@
     width: 100%; 
     height: 250px;
 }
+.form-inline > * {
+   margin:5px 3px;
+}

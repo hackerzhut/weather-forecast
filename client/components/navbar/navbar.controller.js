@@ -1,3 +1,5 @@
+/*global app: true*/
+
 'use strict';
 
 app.controller('NavbarCtrl', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location){

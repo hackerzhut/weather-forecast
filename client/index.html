@@ -16,6 +16,7 @@
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
       <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
       <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.css" />
+      <link rel="stylesheet" href="bower_components/bootswatch-dist/css/bootstrap.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -33,7 +34,6 @@
 
     <!-- Add your site or application content here -->
     <div ng-view=""></div>
-
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -56,8 +56,8 @@
         <!-- build:js({.tmp,client}) app/app.js -->
           <script src="app/app.js"></script>
           <!-- injector:js -->
-          <script src="app/controllers/main.controller.js"></script>
-          <script src="app/controllers/navbar.controller.js"></script>
+          <script src="app/main/main.controller.js"></script>
+          <script src="components/navbar/navbar.controller.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
 </body>

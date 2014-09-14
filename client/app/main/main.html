@@ -1,36 +1,72 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
-<div class="container" ng-controller="WeatherCtrl">
-  <div class="weather-search">
-        <div class="row">
-            <div class="col-xs-12">
-                <div>
-                    <span class="btn-group" >
-                            <button ng-repeat="location in testLocations" ng-click="setLocation(location)" type="submit" class="btn btn-default">{{location}}</button>
-                    </span>
-                    <span ng-show="message" class="alert"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>{{message}}</span>
-                </div>
+<div class="container"  ng-controller="WeatherCtrl">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group">
+                <form name="weatherReportForm" class="form-inline" 
+        ng-submit="weatherReportForm.$valid && getWeatherReport()" novalidate>
+                    <div class="form-group">
+                        <label class="sr-only" for="city-input">City</label>
+                        <input class="form-control input-md " ng-model="weatherForm.city"  name="city-input" type="text" placeholder="Enter City" required/>
+                    </div>
+                    <div class="form-group"></div>
+                    <div class="form-group">
+                        <label for="weekday-input" class="sr-only">Reason</label>
+                        <select class="form-control input-md" ng-model="weatherForm.weekday" ng-options="weekday.name for weekday in weekDays">
+                            <option value="">-- choose a day --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-success input-md" type="submit" value="Get Report" ng-click="submitted=true"/>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <h3 class="page-header" ng-if="location">Weather Report ( {{location}} ) :</h3>
-        <div>
-             <div ng-if="contentAvailable">
-                <div class="gridStyle" ng-grid="gridOptions"></div>
-             </div>
-        </div>
-
+    <hr/>
+    <div ng-if="weatherForm.errorResponse">
+      <p class="lead text-danger"> {{weatherForm.errorResponse}} </p>
     </div>
-  </div>
+    <div ng-if="weatherReport">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="lead"> Weather Report for {{weatherReport.city}} </p>
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Summary</th>
+                            <th>Max Temp</th>
+                            <th>Min Temp</th>
+                            <th>Precip Type</th>
+                            <th>Dew Point</th>
+                            <th>Wind Speed</th>
+                            <th>Cloud Cover</th>
+                            <th>Pressure</th>
+                            <th>Humidity</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="weather in weatherReport">
+                        <td>{{ (weather.time*1000) | date: 'dd-MM-yyyy' }}</td>
+                        <td>{{weather.summary}}</td>
+                        <td>{{weather.temperatureMax}}</td>
+                        <td>{{weather.temperatureMin}}</td>
+                        <td>{{weather.precipType}}</td>
+                        <td>{{weather.dewPoint}}</td>
+                        <td>{{weather.windSpeed}}</td>
+                        <td>{{weather.cloudCover}}</td>
+                        <td>{{weather.pressure}}</td>
+                        <td>{{weather.humidity}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-
 <footer class="footer">
-  <div class="container">
-      <p>Weather Forecast v0.0.1 | <a href="https://github.com/hackerzhut/weather-forecast/issues?state=open">Issues</a></p>
-  </div>
+    <div class="container">
+        <p>Weather Forecast v0.0.1 | 
+            <a href="https://github.com/hackerzhut/weather-forecast/issues?state=open">Issues</a>
+        </p>
+    </div>
 </footer>
