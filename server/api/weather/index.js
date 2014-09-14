@@ -8,13 +8,17 @@ var express 	= require('express'),
 	moment    	= require('moment');
 
 
+//Converts the city name to title case to query the wikipedia data
 function getCityKey(city){
-    return city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+	var str = city.toLowerCase();
+    return str.replace(/\w\S*/g, function(txt){
+    	return txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase();
+    });
 }
 
 // route middleware to validate :city
 router.param('city', function(req, res, next, city) {
-	var cityPattern = /^[a-z]+$/i,
+	var cityPattern = /^[a-z]+( [a-z]+)*$/i,
 		location = null;
 
 	var x = cities.map(function(hash){

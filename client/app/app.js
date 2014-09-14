@@ -1,7 +1,7 @@
 /*global app: true*/
 'use strict';
 
-var app = angular.module('weatherForecastApp', ['ngRoute','ngGrid']);
+var app = angular.module('weatherForecastApp', ['ngRoute']);
 
 	app.value('version', '0.0.1');
 
@@ -20,7 +20,7 @@ var app = angular.module('weatherForecastApp', ['ngRoute','ngGrid']);
 		$locationProvider.html5Mode(true).hashPrefix('!');
 		$routeProvider
 	      .when('/', {
-	        templateUrl: 'app/main/main.html',
+	        templateUrl: 'app/weather/weather.html',
 	        controller: 'WeatherCtrl'
 	      });
 	}]);
